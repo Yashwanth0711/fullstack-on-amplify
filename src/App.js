@@ -16,11 +16,7 @@ import {
   createNote as createNoteMutation,
   deleteNote as deleteNoteMutation,
 } from "./graphql/mutations";
-import { API, Storage } from "aws-amplify";
-import { Amplify } from "@aws-amplify/core";
-import config from './aws-exports.js';
-
-Amplify.configure(config);
+import { generateClient , Storage } from "aws-amplify/api";
 
 const App = ({ signOut }) => {
   const [notes, setNotes] = useState([]);
@@ -28,6 +24,8 @@ const App = ({ signOut }) => {
   useEffect(() => {
     fetchNotes();
   }, []);
+
+  const API=generateClient();
 
   async function fetchNotes() {
     const apiData = await API.graphql({ query: listNotes });
