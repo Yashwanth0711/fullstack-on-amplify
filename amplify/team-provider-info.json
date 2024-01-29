@@ -15,6 +15,9 @@
       "auth": {
         "fullstackonamplify2ba232c3": {},
         "fullstackonamplify": {}
+      },
+      "api": {
+        "fullstackonamplify": {}
       }
     }
   }
